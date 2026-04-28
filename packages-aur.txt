@@ -1,0 +1,8 @@
+catppuccin-gtk-theme-mocha
+eww
+google-chrome
+nerd-fonts-cozette-ttf
+overskride
+sddm-sugar-candy-git
+spotify
+xdg-desktop-portal-termfilechooser-git

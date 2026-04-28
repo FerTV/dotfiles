@@ -1,0 +1,155 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "margin-top": 5,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": [
+        "custom/arch",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "group/tray",
+        "group/hardware",
+        "network",
+        "custom/bluetooth",
+        "custom/power"
+    ],
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+        "format": "🚀 {}%",
+        "return-type": "",
+        "interval": 2,
+        "tooltip": true,
+        "tooltip-format": "NVIDIA RTX 5060 Ti"
+    },
+    "cpu": {
+        "interval": 2,
+        "format": "⚡ {usage}%",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 3,
+        "format": "💾 {}%",
+        "max-length": 10
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "🔥 {temperatureC}°C"
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "🔔<span foreground='red'><sup>•</sup></span>",
+            "none": "🔔",
+            "dnd-notification": "🔕<span foreground='red'><sup>•</sup></span>",
+            "dnd-none": "🔕",
+            "inhibited-notification": "🔔<span foreground='red'><sup>•</sup></span>",
+            "inhibited-none": "🔔",
+            "dnd-inhibited-notification": "🔕<span foreground='red'><sup>•</sup></span>",
+            "dnd-inhibited-none": "🔕"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S}",
+        "tooltip": false,
+        "on-click": "~/.config/eww/launch_calendar.sh"
+    },
+    "network": {
+        "format-wifi": "📡 {signalStrength}%",
+        "format-ethernet": "🌐 {ipaddr}",
+        "tooltip-format": "{essid} - {ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "❌ Disconnected",
+        "on-click": "~/.config/rofi/wifi-menu.sh"
+    },
+    "custom/power": {
+        "format": "⚙️",
+        "tooltip": false,
+        "on-click": "~/.config/eww/launch_dashboard.sh"
+    },
+    "custom/bluetooth": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "overskride"
+    },
+    "custom/tray-icon": {
+        "format": "❮",
+        "tooltip": false
+    },
+    "group/tray": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "tray-child",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/tray-icon",
+            "tray"
+        ]
+    },
+    "custom/hw-icon": {
+        "format": " ",
+        "tooltip": false
+    },
+    "group/hardware": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "hw-drawer",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/hw-icon",
+            "cpu",
+            "custom/gpu",
+            "memory"
+        ]
+    },
+    "custom/arch": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    }
+}

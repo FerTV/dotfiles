@@ -1,0 +1,55 @@
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+# Define the prompt order
+format = "╭─ $directory$git_branch$git_status$python$line_break╰─ $os $character"
+
+[os]
+disabled = false
+style = "bold blue"
+
+[os.symbols]
+Arch = " "
+Unknown = " "
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold red)"
+
+[directory]
+truncation_length = 3
+truncation_symbol = "…/"
+style = "bold cyan"
+read_only = " 🔒"
+
+[git_branch]
+symbol = " "
+style = "bold purple"
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "🐢"
+diverged = "😵"
+up_to_date = "✓"
+untracked = "🤷"
+stashed = "📦"
+modified = "📝"
+staged = "[+]"
+renamed = "👅"
+deleted = "🗑"
+style = "bold red"
+
+[python]
+symbol = "🐍 "
+pyenv_version_name = true
+style = "bold yellow"
+detect_files = ["requirements.txt", ".python-version", "pyproject.toml", "Pipfile", "tox.ini", "setup.py", "__init__.py"]
+detect_extensions = ["py"]
+disabled = false
+
+[package]
+disabled = true

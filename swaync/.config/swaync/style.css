@@ -1,0 +1,272 @@
+/* SwayNC Styling - Catppuccin / Aesthetic Rice */
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+}
+
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+  opacity: 1;
+  background: #1e1e2e;
+}
+
+.notification-row {
+  outline: none;
+  margin: 10px;
+  padding: 0;
+}
+
+.notification {
+  background: transparent;
+  padding: 0;
+  margin: 0px;
+}
+
+.notification-content {
+  background: #1e1e2e;
+  padding: 20px;
+  border-radius: 12px;
+  border: 2px solid #89b4fa;
+  margin: 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Hide notification icon image */
+.notification-content image,
+.notification-default-action image,
+.notification-row image {
+  opacity: 0;
+  background: transparent;
+}
+
+.notification-default-action {
+  margin: 0;
+  padding: 0;
+  border-radius: 12px;
+}
+
+.close-button {
+  background: #f38ba8;
+  color: #1e1e2e;
+  text-shadow: none;
+  padding: 0;
+  border-radius: 100%;
+  margin-top: 5px;
+  margin-right: 5px;
+  box-shadow: none;
+  border: none;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.close-button:hover {
+  box-shadow: none;
+  background: #d20f39;
+  transition: all 0.15s ease-in-out;
+  border: none;
+}
+
+.notification-action {
+  border: 2px solid #89b4fa;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+}
+
+.notification-default-action:hover,
+.notification-action:hover {
+  color: #89b4fa;
+  background: #1e1e2e;
+}
+
+.notification-default-action {
+  border-radius: 12px;
+  margin: 0px;
+}
+
+.notification-default-action:not(:only-child) {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.notification-action {
+  border-radius: 0px;
+  border-top: none;
+  margin: 0px;
+}
+
+.notification-action:first-child {
+  border-bottom-left-radius: 12px;
+}
+
+.notification-action:last-child {
+  border-bottom-right-radius: 12px;
+}
+
+.inline-reply {
+  margin-top: 8px;
+}
+
+.inline-reply-entry {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border: 1px solid #89b4fa;
+  border-radius: 12px;
+}
+
+.inline-reply-button {
+  margin-left: 4px;
+  background: #1e1e2e;
+  border: 1px solid #89b4fa;
+  border-radius: 12px;
+  color: #cdd6f4;
+}
+
+.inline-reply-button:disabled {
+  background: initial;
+  color: #585b70;
+  border: 1px solid transparent;
+}
+
+.inline-reply-button:hover {
+  background: #1e1e2e;
+}
+
+.body-image {
+  margin-top: 6px;
+  background-color: #cdd6f4;
+  border-radius: 12px;
+}
+
+.summary {
+  font-size: 14px;
+  font-weight: 700;
+  background: transparent;
+  color: #cdd6f4;
+  text-shadow: none;
+}
+
+.time {
+  font-size: 12px;
+  font-weight: 700;
+  background: transparent;
+  color: #cdd6f4;
+  text-shadow: none;
+  margin-right: 18px;
+}
+
+.body {
+  font-size: 13px;
+  font-weight: 400;
+  background: transparent;
+  color: #cdd6f4;
+  text-shadow: none;
+}
+
+.control-center {
+  background: #1e1e2e;
+  border: 2px solid #89b4fa;
+  border-radius: 12px;
+}
+
+.control-center-list {
+  background: transparent;
+}
+
+.control-center-list-placeholder {
+  opacity: 0.5;
+}
+
+.floating-notifications {
+  background: transparent;
+}
+
+.blank-window {
+  background: alpha(black, 0.1);
+}
+
+.widget-title {
+  color: #89b4fa;
+  background: #1e1e2e;
+  padding: 5px 10px;
+  margin: 10px 10px 5px 10px;
+  font-size: 1rem;
+  border-radius: 12px;
+}
+
+.widget-title>button {
+  font-size: 1rem;
+  color: #cdd6f4;
+  text-shadow: none;
+  background: #313244;
+  box-shadow: none;
+  border-radius: 12px;
+}
+
+.widget-title>button:hover {
+  background: #f38ba8;
+  color: #1e1e2e;
+}
+
+.widget-dnd {
+  background: #1e1e2e;
+  padding: 5px 10px;
+  margin: 10px 10px 5px 10px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: #cdd6f4;
+}
+
+.widget-dnd>switch {
+  border-radius: 12px;
+  background: #313244;
+}
+
+.widget-dnd>switch:checked {
+  background: #89b4fa;
+  border: 1px solid #89b4fa;
+}
+
+.widget-dnd>switch slider {
+  background: #cdd6f4;
+  border-radius: 12px;
+}
+
+.widget-dnd>switch:checked slider {
+  background: #1e1e2e;
+  border-radius: 12px;
+}
+
+.widget-label {
+  margin: 10px 10px 5px 10px;
+}
+
+.widget-label>label {
+  font-size: 0.9rem;
+  color: #cdd6f4;
+}
+
+.widget-mpris {
+  color: #cdd6f4;
+  background: #313244;
+  padding: 5px 10px;
+  margin: 10px 10px 5px 10px;
+  border-radius: 12px;
+}
+
+.widget-mpris>box>button {
+  border-radius: 12px;
+}
+
+.widget-mpris-player {
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+.widget-mpris-title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.widget-mpris-subtitle {
+  font-size: 0.8rem;
+}

@@ -1,0 +1,145 @@
+(defpoll time :interval "1s" "date +'%H:%M:%S'")
+(defpoll date :interval "1s" "date +'%d.%m.%Y, %A'")
+
+(defwindow calendar
+  :monitor 0
+  :geometry (geometry :x "0px"
+                      :y "10px"
+                      :width "270px"
+                      :anchor "top center")
+  :stacking "overlay"
+  (cal))
+
+
+(defvar calrev false)
+(defpoll cal_data :interval "1h" "python3 ~/.config/eww/scripts/calendar_json.py")
+
+(defwidget cal []
+  (revealer :transition "slidedown" :duration "300ms" :reveal calrev
+    (box :class "calendar-container" :orientation "v" :space-evenly false
+      
+      (box :class "calendar-box" :orientation "v" :space-evenly false
+        ;; Custom Header
+        (box :class "custom-header" :space-evenly true
+             (label :class "month-year" :text "${cal_data.month} ${cal_data.year}")
+        )
+        
+        ;; Day Names
+        (box :class "day-names" :space-evenly true
+          (for day in {cal_data.headers}
+            (label :class "day-name" :text day)
+          )
+        )
+
+        ;; Weeks
+        (box :class "weeks" :orientation "v" :space-evenly false
+          (for week in {cal_data.weeks}
+            (box :class "week" :space-evenly true
+              (for day in week
+                (label :class "day ${day.class}" :text {day.number})
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)
+
+;; Dashboard Variables
+(defpoll uptime :interval "60s" "uptime -p | sed -e 's/up //g'")
+(defpoll volume :interval "1s" "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'")
+(defpoll mic :interval "1s" "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2*100)}'")
+(defpoll brightness :interval "1s" "brightnessctl -m | head -n1 | awk -F, '{print substr($5, 0, length($5)-1)}'")
+(defpoll max_brightness :interval "100s" "echo 100")
+(defpoll music_title :interval "1s" "playerctl metadata title || echo 'No Music'")
+(defpoll music_artist :interval "1s" "playerctl metadata artist || echo ''")
+(defpoll music_status :interval "1s" "playerctl status || echo 'Stopped'")
+(defpoll music_len :interval "1s" "playerctl metadata mpris:length | awk '{print int($1/1000000)}' || echo 100")
+(defpoll music_pos :interval "1s" "playerctl position | awk '{print int($1)}' || echo 0")
+
+(defwindow dashboard
+  :monitor 0
+  :geometry (geometry :x "10px"
+                      :y "10px"
+                      :width "300px"
+                      :anchor "top right")
+  :stacking "overlay"
+  (dashboard_widget))
+
+(defvar dashboard_reveal false)
+
+(defwidget dashboard_widget []
+  (revealer :transition "slidedown" :reveal dashboard_reveal :duration "300ms"
+    (box :class "dashboard-container" :orientation "v" :space-evenly false
+    
+    ;; Profile Section
+    (box :class "profile-section" :orientation "h" :space-evenly false
+      (box :class "profile-pic" :style "background-image: url('/home/w1nt3r/Pictures/icon.png');")
+      (box :orientation "v" :space-evenly false :class "profile-info"
+        (label :text "w1nt3r" :class "username" :halign "start" :limit-width 20)
+        (label :text "up ${uptime}" :class "uptime" :halign "start" :limit-width 30)
+        (box :orientation "h" :space-evenly true :class "sys-controls"
+             (button :onclick "shutdown now" "X")
+             (button :onclick "reboot" "R")
+             (button :onclick "hyprctl dispatch exit" "L")
+        )
+      )
+    )
+    
+
+
+    ;; Sliders
+    (box :class "sliders-section" :orientation "v" :space-evenly false
+      (box :orientation "h" :space-evenly false :class "slider-row"
+        (label :text "" :class "icon")
+        (scale :min 0 :max 101 :active true :value volume :onchange "~/.config/eww/scripts/volume.sh set {}" :hexpand true)
+      )
+      (box :orientation "h" :space-evenly false :class "slider-row"
+        (label :text "" :class "icon") 
+        (scale :min 0 :max 100 :active true :value brightness :onchange "brightnessctl s {}%" :hexpand true)
+      )
+    )
+
+    ;; Music Player
+    (box :class "music-section" :orientation "v" :space-evenly false
+      (label :text "🎵 ${music_title}" :limit-width 30 :class "music-title")
+      (label :text "${music_artist}" :limit-width 30 :class "music-artist")
+      (box :orientation "h" :space-evenly true :class "music-controls"
+        (button :onclick "playerctl previous" "⏮")
+        (button :onclick "playerctl play-pause" {music_status == "Playing" ? "⏸" : "▶"})
+        (button :onclick "playerctl next" "⏭")
+      )
+      (scale :min 0 :max {music_len} :active true :value music_pos :class "music-bar")
+    )
+    )
+  )
+)
+
+
+(defvar volume_osd_reveal false)
+
+(defwindow volume_osd
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "5%"
+                      :width "20%"
+                      :height "60px"
+                      :anchor "bottom center")
+  :stacking "overlay"
+  (volume_widget))
+
+(defwidget volume_widget []
+  (revealer :transition "slideup" :reveal volume_osd_reveal :duration "300ms"
+    (box :class "volume-osd" :orientation "h" :space-evenly false :halign "center"
+      (label :text "" :class "volume-icon")
+      (scale :class "volume-scale" 
+             :min 0 :max 101 
+             :active true 
+             :value volume 
+             :onchange "~/.config/eww/scripts/volume.sh set {}"
+      )
+      (label :text "${volume}%" :class "volume-text")
+    )
+  )
+)

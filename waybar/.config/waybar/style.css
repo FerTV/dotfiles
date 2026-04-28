@@ -1,0 +1,158 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: bold;
+    font-size: 12pt;
+    min-height: 0;
+}
+
+window#waybar {
+    background: #11111b;
+    color: #cdd6f4;
+    border-radius: 15px;
+}
+
+tooltip {
+    background: #1e1e2e;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #313244;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: #a6adc8;
+    /* Inactive dots */
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: #89b4fa;
+    /* Active dot color */
+    background: transparent;
+    text-shadow: 0 0 5px #89b4fa;
+    /* Optional glow */
+}
+
+#workspaces button:hover {
+    background: transparent;
+    color: #cdd6f4;
+}
+
+/* Common style for all modules */
+#workspaces {
+    background: transparent;
+    margin: 0px;
+    padding: 0px;
+}
+
+#custom-updates,
+#custom-gpu,
+#window,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#custom-notification,
+#tray,
+#custom-hw-icon,
+#custom-tray-icon,
+#custom-bluetooth,
+#custom-power {
+    background: #1e1e2e;
+    color: #cdd6f4;
+    padding: 4px 12px;
+    margin: 4px 3px;
+    border-radius: 15px;
+    border: 1px solid #313244;
+}
+
+#custom-hw-icon {
+    color: #cba6f7;
+    padding-right: 14px;
+    /* visual separation */
+}
+
+#custom-tray-icon {
+    color: #cdd6f4;
+    padding-right: 10px;
+}
+
+#tray {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0 5px;
+}
+
+/* Specific text colors */
+#clock {
+    color: #cdd6f4;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+    color: #fab387;
+}
+
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+}
+
+#cpu {
+    color: #fab387;
+}
+
+#memory {
+    color: #a6e3a1;
+}
+
+#temperature {
+    color: #f38ba8;
+}
+
+#network {
+    color: #74c7ec;
+}
+
+#pulseaudio {
+    color: #cba6f7;
+}
+
+#custom-power {
+    color: #f38ba8;
+    background: #313244;
+}
+
+#custom-bluetooth {
+    color: #89b4fa;
+}
+
+#window {
+    background: transparent;
+    border: none;
+    color: #cdd6f4;
+}
+
+#custom-arch {
+    color: #1793d1;
+    font-size: 18px;
+    padding-left: 10px;
+    padding-right: 15px;
+    margin-left: 5px;
+}

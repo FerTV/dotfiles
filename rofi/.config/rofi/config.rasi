@@ -1,0 +1,264 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*                          Catppuccin Mocha Theme                              */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+* {
+    /* Catppuccin Mocha Colors */
+    bg:           #1e1e2e;
+    bg-alt:       #313244;
+    surface0:     #313244;
+    surface1:     #45475a;
+    overlay0:     #6c7086;
+    text:         #cdd6f4;
+    subtext0:     #a6adc8;
+    blue:         #89b4fa;
+    lavender:     #b4befe;
+    red:          #f38ba8;
+    peach:        #fab387;
+    green:        #a6e3a1;
+    mauve:        #cba6f7;
+    
+    /* General */
+    font:         "JetBrainsMono Nerd Font 12";
+    border-radius: 12px;
+}
+
+configuration {
+    modi:                       "drun,run,window";
+    show-icons:                 true;
+    display-drun:               "  Apps";
+    display-run:                "  Run";
+    display-window:             "  Windows";
+    drun-display-format:        "{name}";
+    window-format:              "{w} · {c} · {t}";
+    disable-history:            true;
+    sort:                       true;
+    sorting-method:             "normal";
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*                              Main Window                                      */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      600px;
+    x-offset:                   0px;
+    y-offset:                   0px;
+
+    enabled:                    true;
+    border:                     2px solid;
+    border-color:               @blue;
+    border-radius:              @border-radius;
+    background-color:           @bg;
+    cursor:                     "default";
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*                              Main Box                                         */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+mainbox {
+    enabled:                    true;
+    spacing:                    10px;
+    padding:                    20px;
+    background-color:           transparent;
+    children:                   [ "inputbar", "message", "listview", "mode-switcher" ];
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*                              Input Bar                                        */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+inputbar {
+    enabled:                    true;
+    spacing:                    10px;
+    padding:                    12px 16px;
+    background-color:           @bg-alt;
+    border-radius:              @border-radius;
+    text-color:                 @text;
+    children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @blue;
+}
+
+textbox-prompt-colon {
+    enabled:                    true;
+    expand:                     false;
+    str:                        "::";
+    background-color:           transparent;
+    text-color:                 inherit;
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @text;
+    cursor:                     text;
+    placeholder:                "Search...";
+    placeholder-color:          @overlay0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*                              List View                                        */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+listview {
+    enabled:                    true;
+    columns:                    1;
+    lines:                      8;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              true;
+    
+    spacing:                    5px;
+    background-color:           transparent;
+    text-color:                 @text;
+    cursor:                     "default";
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*                              Elements                                         */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+element {
+    enabled:                    true;
+    spacing:                    10px;
+    padding:                    10px 12px;
+    border-radius:              @border-radius;
+    background-color:           transparent;
+    text-color:                 @text;
+    cursor:                     pointer;
+}
+
+element normal.normal {
+    background-color:           transparent;
+    text-color:                 @text;
+}
+
+element normal.urgent {
+    background-color:           @red;
+    text-color:                 @bg;
+}
+
+element normal.active {
+    background-color:           @blue;
+    text-color:                 @bg;
+}
+
+element selected.normal {
+    background-color:           @bg-alt;
+    text-color:                 @blue;
+    border:                     1px solid;
+    border-color:               @blue;
+}
+
+element selected.urgent {
+    background-color:           @red;
+    text-color:                 @bg;
+}
+
+element selected.active {
+    background-color:           @blue;
+    text-color:                 @bg;
+}
+
+element alternate.normal {
+    background-color:           transparent;
+    text-color:                 @text;
+}
+
+element alternate.urgent {
+    background-color:           @red;
+    text-color:                 @bg;
+}
+
+element alternate.active {
+    background-color:           @blue;
+    text-color:                 @bg;
+}
+
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       24px;
+    cursor:                     inherit;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*                              Mode Switcher                                    */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+mode-switcher {
+    enabled:                    true;
+    expand:                     false;
+    spacing:                    10px;
+    background-color:           transparent;
+    text-color:                 @text;
+}
+
+button {
+    padding:                    10px 16px;
+    border-radius:              @border-radius;
+    background-color:           @bg-alt;
+    text-color:                 @subtext0;
+    cursor:                     pointer;
+}
+
+button selected {
+    background-color:           @blue;
+    text-color:                 @bg;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/*                              Message                                          */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+message {
+    enabled:                    true;
+    margin:                     0px;
+    padding:                    10px;
+    border-radius:              @border-radius;
+    background-color:           @bg-alt;
+    text-color:                 @text;
+}
+
+textbox {
+    padding:                    10px;
+    border-radius:              @border-radius;
+    background-color:           transparent;
+    text-color:                 @text;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+    highlight:                  none;
+    placeholder-color:          @overlay0;
+    blink:                      true;
+    markup:                     true;
+}
+
+error-message {
+    padding:                    15px;
+    border-radius:              @border-radius;
+    background-color:           @bg;
+    text-color:                 @red;
+}
