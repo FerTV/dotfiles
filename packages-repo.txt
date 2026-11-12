@@ -8,6 +8,7 @@ brightnessctl
 btop
 btrfs-progs
 cava
+cliphist
 cmake
 cpio
 cups
@@ -34,7 +35,9 @@ iwd
 jq
 kitty
 lib32-gamemode
+lib32-nvidia-utils
 libpulse
+libva-nvidia-driver
 linux-firmware
 linux-lts
 linux-lts-headers
@@ -47,13 +50,18 @@ networkmanager
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
+ntfs-3g
+nvidia-open-dkms
+nvidia-utils
 obs-studio
 onefetch
 os-prober
+pacman-contrib
 pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
+playerctl
 plymouth
 python-gobject
 python-pip
@@ -61,7 +69,6 @@ qt5-wayland
 qt6-wayland
 rofi
 sassc
-sddm
 slurp
 smartmontools
 starship
@@ -89,7 +96,6 @@ xdg-desktop-portal-hyprland
 xdg-utils
 xorg-server
 xorg-xinit
-yay
 yazi
 zoxide
 zram-generator

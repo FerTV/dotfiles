@@ -50,16 +50,22 @@ Ensure you have the base dependencies installed. You can find the full lists her
 - [AUR Packages](packages-aur.txt)
 
 ### 2. Installation
-Clone the repository and use `stow` to link the configurations:
+On a fresh Arch base install (made with `archinstall`), log in as your user and run:
 
 ```bash
 git clone https://github.com/FerTV/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-stow .
+./install.sh          # add --dev for Podman + QEMU/libvirt
 ```
 
-> [!TIP]
-> You can stow specific directories instead of everything: `stow hypr zsh kitty`.
+The script installs the packages, the NVIDIA driver, yay and the AUR packages, sets up GRUB for dual boot with Windows, enables ly, and links every config with Stow.
+
+To link the configs by hand, stow each package (not `.`, and not `wallpapers`):
+
+```bash
+stow btop cava dunst eww gtk hypr kitty rofi starship swaync waybar yazi zsh
+mkdir -p ~/Pictures/wallpapers && cp wallpapers/* ~/Pictures/wallpapers/
+```
 
 ### 3. Fonts
 This setup relies heavily on **Nerd Fonts**. Make sure to install them for the icons to render correctly.
