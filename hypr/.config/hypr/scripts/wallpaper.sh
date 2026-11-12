@@ -11,6 +11,6 @@ hyprpaper --config ~/.config/hypr/hyprpaper.conf &
 sleep 0.5
 if pgrep hyprpaper > /dev/null; then
     # Force apply just in case
-    hyprctl hyprpaper wallpaper "HDMI-A-1,/home/w1nt3r/Pictures/wallpapers/lg.png"
-    hyprctl hyprpaper wallpaper "DP-3,/home/w1nt3r/Pictures/wallpapers/asus.png"
+    hyprctl hyprpaper wallpaper "HDMI-A-1,$HOME/Pictures/wallpapers/lg.png"
+    hyprctl hyprpaper wallpaper "DP-3,$HOME/Pictures/wallpapers/asus.png"
 fi
