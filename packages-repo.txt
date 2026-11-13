@@ -1,4 +1,5 @@
 7zip
+awww
 base
 base-devel
 bat
@@ -76,7 +77,6 @@ stow
 sudo
 swappy
 swaync
-swww
 ttf-hack-nerd
 ttf-iosevka-nerd
 ttf-jetbrains-mono-nerd
