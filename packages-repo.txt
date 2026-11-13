@@ -28,7 +28,6 @@ grub
 gst-plugin-pipewire
 hyprland
 hyprlock
-hyprpaper
 hyprpolkitagent
 imagemagick
 iwd
@@ -77,6 +76,7 @@ stow
 sudo
 swappy
 swaync
+swww
 ttf-hack-nerd
 ttf-iosevka-nerd
 ttf-jetbrains-mono-nerd

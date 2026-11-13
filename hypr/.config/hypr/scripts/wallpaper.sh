@@ -1,16 +1,16 @@
 #!/bin/bash
+# Wallpapers via swww (independent of hyprlang; reliable on NVIDIA).
 
-# Kill old instances
-pkill hyprpaper
-sleep 0.1
-
-# Start hyprpaper with explicit config
-hyprpaper --config ~/.config/hypr/hyprpaper.conf &
-
-# Fallback: Wait a tiny bit and force reload if it failed to pick up
-sleep 0.5
-if pgrep hyprpaper > /dev/null; then
-    # Force apply just in case
-    hyprctl hyprpaper wallpaper "HDMI-A-1,$HOME/Pictures/wallpapers/lg.png"
-    hyprctl hyprpaper wallpaper "DP-3,$HOME/Pictures/wallpapers/asus.png"
+# Start the swww daemon if it isn't running yet
+if ! swww query >/dev/null 2>&1; then
+    swww-daemon &
+    # wait for the daemon to be ready
+    for _ in $(seq 1 20); do
+        swww query >/dev/null 2>&1 && break
+        sleep 0.1
+    done
 fi
+
+# Per-monitor wallpapers
+swww img "$HOME/Pictures/wallpapers/lg.png"   --outputs HDMI-A-1
+swww img "$HOME/Pictures/wallpapers/asus.png" --outputs DP-3
