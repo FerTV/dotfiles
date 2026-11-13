@@ -74,7 +74,6 @@ hl.config({
     },
   },
   dwindle = {
-    pseudotile = true,
     preserve_split = true,
   },
   master = {
@@ -222,7 +221,7 @@ if hl.window_rule then
     no_focus = true,
   })
 
-  hl.window_rule({ name = "move-hyprland-run", match = { class = "hyprland-run" }, move = "20 monitor_h-120", float = true })
+  hl.window_rule({ name = "move-hyprland-run", match = { class = "hyprland-run" }, float = true })
   hl.window_rule({ name = "ncspot-float", match = { class = "ncspot" }, float = true, size = "1000 600", move = "center" })
   hl.window_rule({ name = "ReadyOrNot", match = { class = "^(ReadyOrNot.*|steam_app_1144200)$" }, monitor = "DP-3", fullscreen = true, immediate = true })
   hl.window_rule({ name = "Starfield", match = { class = "^(starfield\\.exe|steam_app_1716740)$" }, monitor = "DP-3", fullscreen = true, immediate = true })
