@@ -8,8 +8,12 @@
 }
 
 window#waybar {
-    background: #11111b;
+    background: transparent;
     color: #cdd6f4;
+}
+
+window#waybar > box {
+    background: #11111b;
     border-radius: 15px;
 }
 
